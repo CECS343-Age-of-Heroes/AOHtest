@@ -14,6 +14,7 @@ public class GameTestClass {
 
 	public static void main(String[] args) {
 		GameTestClass gtc = new GameTestClass();
+                System.out.println("Hello World!");
 	}
 
 }
