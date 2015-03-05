@@ -13,8 +13,12 @@ public class GameTestClass {
 	}
 
 	public static void main(String[] args) {
-		GameTestClass gtc = new GameTestClass();
-                System.out.println("Hello World!");
+        System.out.println("Hello World!");
+		new GameTestClass();
+		System.out.println(Poop(3, 2));
 	}
 
+	public static int Poop(int x, int y) {
+		return x + y;
+	}
 }
