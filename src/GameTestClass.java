@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+
 import javax.swing.*;
 
 
@@ -10,7 +11,7 @@ class PlayerBoard extends JPanel {
 	public PlayerBoard() {
 		setBackground(Color.RED);
 		setLayout(new GridLayout(2,1));
-		//this.setPreferredSize(new Dimension(500,500));
+		//this.setPreferredSize(new Dimension(250,250));
 		//this.setSize(500, 500);
 		
 		JPanel top = new JPanel();
@@ -42,7 +43,6 @@ class PlayerBoard extends JPanel {
 		
 		bottom.add(bL);
 		bottom.add(bR);
-
 		add(top);
 		add(bottom);
 	}
@@ -52,23 +52,23 @@ class PlayerBoard extends JPanel {
 class GameBoard extends JPanel {
 	
 	public GameBoard() {
-		setLayout(new GridLayout(1, 2));
+		//setLayout(new GridLayout(1, 2));
 		
 		JPanel main = new PlayerBoard();
-		main.setSize(500, 500);
+		main.setPreferredSize(new Dimension(500, 500));
 		
-		JPanel other = new JPanel();
-		other.setLayout(new GridLayout(2,1));
+		JPanel others = new JPanel();
+		others.setLayout(new GridLayout(2,1));
 		
 		JPanel c1 = new PlayerBoard();
 		JPanel c2 = new PlayerBoard();
-		c1.setSize(250, 250);
-		c2.setSize(250, 250);
-		other.add(c1);
-		other.add(c2);
+		c1.setPreferredSize(new Dimension(250, 250));
+		c2.setPreferredSize(new Dimension(250, 250));
+		others.add(c1);
+		others.add(c2);
 		
 		add(main);
-		add(other);
+		add(others);
 	}
 }
 
@@ -76,26 +76,19 @@ class GameBoard extends JPanel {
 public class GameTestClass extends JFrame {
 
 	JPanel p = new JPanel();	// main panel
-	JPanel p3 = new JPanel();	// first child
-	//JPanel p3 = new JPanel();	// another child to switch
-	//JPanel p2 = new PlayerBoard();	// another child to switch
-	JPanel p2 = new GameBoard();	// another child to switch
+	JPanel p2 = new GameBoard();// another child to switch
+	JPanel p3 = new JPanel();	// child
 	JButton butt   = new JButton("Tiles");
 	
 	public GameTestClass() {
 		
-		p = new JPanel();
-		p.setPreferredSize(new Dimension(750, 500));
-		p.setLayout(new BorderLayout(10, 10));
+		p.setPreferredSize(new Dimension(750, 560));
+		//p.setLayout(new BorderLayout(10, 10));
 		p.setBackground(Color.yellow);
-		
-		p2.setBackground(Color.BLACK);
-		//p2.setPreferredSize(new Dimension(500, 500));
-		
-		/*
+
 		p3.setBackground(Color.RED);
+		p3.setPreferredSize(new Dimension(750, 500));
 		p3.setLayout(new GridLayout(2,2));
-		p3.setPreferredSize(new Dimension(700, 700));
 		JPanel p11 = new JPanel();
 		JPanel p12 = new JPanel();
 		JPanel p13 = new JPanel();
@@ -108,15 +101,17 @@ public class GameTestClass extends JFrame {
 		p3.add(p12);
 		p3.add(p13);
 		p3.add(p14);
-		*/
 		
 		OptionListener optionListener = new OptionListener();
         butt.addActionListener(optionListener);
         		
 		setTitle("Some Frame");
-        setLocation(100, 200);		// sets location of window/frame
+        setLocation(100, 200);		// sets location of the program window/frame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         p.add(p2, BorderLayout.CENTER);
+        p.add(p3, BorderLayout.CENTER);
+        p2.setVisible(true);
+        p3.setVisible(false);
         p.add(butt, BorderLayout.SOUTH);
         add(p);
         pack();
@@ -127,22 +122,25 @@ public class GameTestClass extends JFrame {
 	private class OptionListener implements ActionListener
 	{   
 		@Override
-		public void actionPerformed(ActionEvent e) 
-		{
+		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == butt) {
 				
 				if (butt.getText().equals("Tiles")) {
 					butt.setText("Done");
-					p.remove(p2);
-					p.add(p3, BorderLayout.CENTER);
+					//p.remove(p2);
+					//p.add(p3, BorderLayout.CENTER);
+					p2.setVisible(false);
+					p3.setVisible(true);
 					p.revalidate();
 	                p.repaint();
 	                pack();
 				}
 				else if (butt.getText().equals("Done")) {
 					butt.setText("Tiles");
-					p.remove(p3);
-					p.add(p2, BorderLayout.CENTER);
+					//p.remove(p3);
+					//p.add(p2, BorderLayout.CENTER);
+					p2.setVisible(true);
+					p3.setVisible(false);
 					p.revalidate();
 					p.repaint();
 					pack();
