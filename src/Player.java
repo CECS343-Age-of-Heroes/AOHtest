@@ -6,8 +6,8 @@ public class Player {
    String age;
    ArrayList<Card> cards;
    ArrayList<Resource> resources;
-   Object building;
-   Object tiles;
+   ArrayList<BuildingTiles> buildingTiles;
+   ArrayList<ProductionTiles> productionTiles;
    Integer victoryPoints;
    boolean turn;
    public Player(){
@@ -15,8 +15,8 @@ public class Player {
       age = "Archaic";
       cards = new ArrayList();
       resources = new ArrayList();
-      building = null;
-      tiles = null;
+      buildingTiles = new ArrayList();
+      productionTiles = new ArrayList();
       victoryPoints = 0;
       turn = false;
    }
@@ -58,5 +58,8 @@ public class Player {
             quantity = quantity + resources.get(i).value;
       }
       return quantity;
+   }
+   public void addResource(Resource newResource){
+      resources.add(newResource);
    }
 }
