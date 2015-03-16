@@ -9,5 +9,13 @@
  * @author Kaz
  */
 public class BuildingTiles {
-   
+   String mBuildName;
+   Integer buildValue;
+   public BuildingTiles(String buildName){
+      mBuildName = buildName;
+      buildValue = null;
+   }
+   public String buildType(){
+      return mBuildName;
+   }
 }

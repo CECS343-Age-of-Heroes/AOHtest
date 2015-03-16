@@ -6,8 +6,8 @@ public class Player {
    String age;
    ArrayList<Card> cards;
    ArrayList<Resource> resources;
-   ArrayList<BuildingTiles> buildingTiles;
-   ArrayList<ProductionTiles> productionTiles;
+   ArrayList<BuildingTiles> buildingT;
+   ArrayList<ProductionTiles> productionT;
    Integer victoryPoints;
    boolean turn;
    public Player(){
@@ -15,8 +15,8 @@ public class Player {
       age = "Archaic";
       cards = new ArrayList();
       resources = new ArrayList();
-      buildingTiles = new ArrayList();
-      productionTiles = new ArrayList();
+      buildingT = new ArrayList();
+      productionT = new ArrayList();
       victoryPoints = 0;
       turn = false;
    }
@@ -59,7 +59,42 @@ public class Player {
       }
       return quantity;
    }
-   public void addResource(Resource newResource){
-      resources.add(newResource);
+   public void addResource(String newResource){
+      Resource tempRes = new Resource(newResource);
+      resources.add(tempRes);
+   }
+   public void buildBuilding(String newBuilding){
+      int quantity = 0;
+      // need to worry about how many you can place down only a total of 16
+      for(int i = 0;i < buildingT.size();i++){
+         if(buildingT.get(i).buildType().equals(newBuilding))
+            quantity++;
+      }
+      if(quantity == 1 && newBuilding != "House"){
+         BuildingTiles tempBuild = new BuildingTiles(newBuilding);
+         buildingT.add(tempBuild);
+      }
+      else if(newBuilding == "House" && quantity <= 10){
+         BuildingTiles tempBuild = new BuildingTiles(newBuilding);
+         buildingT.add(tempBuild);
+      }
+      else{
+         System.out.println("You have have hit the building limit");
+      }
+   }
+   public void placeProduction(String newProduction){
+      int quantity = 0;
+      // need to worry about how many you can place down only a total of 16
+      for(int i = 0;i < productionT.size();i++){
+         if(productionT.get(i).productionType().equals(newProduction))
+            quantity++;
+      //check with race to find out how much of each tile the player can have
+      }
+   }
+   public Integer victoryPtsQuantity(){
+      return victoryPoints;
+   }
+   public void addVictoryPts(Integer addThisMuch){
+      victoryPoints = victoryPoints + addThisMuch;
    }
 }

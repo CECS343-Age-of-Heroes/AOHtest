@@ -9,5 +9,13 @@
  * @author Kaz
  */
 public class ProductionTiles {
-   
+   String mProductionName;
+   Integer productionValue;
+   public ProductionTiles(String productionName){
+      mProductionName = productionName;
+      productionValue = null;
+   }
+   public String productionType(){
+      return mProductionName;
+   }
 }
