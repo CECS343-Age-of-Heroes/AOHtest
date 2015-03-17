@@ -10,6 +10,7 @@ public class Player {
    private ArrayList<BuildingTiles> buildingT;
    private ArrayList<ProductionTiles> productionT;
    private Integer victoryPoints;
+   private Action myMove;
    boolean turn;
    public Player(String name, String culture){
       mName = name;
@@ -21,6 +22,10 @@ public class Player {
       productionT = new ArrayList();
       victoryPoints = 0;
       turn = false;
+   }
+   
+   public String getName(){
+       return mName;
    }
    public String getCulture(){
       return mCulture.showCulture();
@@ -76,7 +81,7 @@ public class Player {
       }
    }
    public void placeProduction(String newProduction){
-      mCulture.drawProdT(newProduction, productionT);
+      myMove.drawProdT(newProduction, mCulture.showCulture(),productionT);
    }
    public Integer productionSize(){
       return productionT.size();
