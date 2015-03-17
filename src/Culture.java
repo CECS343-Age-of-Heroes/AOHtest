@@ -22,29 +22,35 @@ public class Culture {
              nTile.equals("Forest")&&checkCount(nTile,tArray) < 1 ||
              nTile.equals("Hills")&&checkCount(nTile,tArray) < 2 ||
              nTile.equals("Swamp")&&checkCount(nTile,tArray) < 2)
-            tArray.add(tempTile);
+               tArray.add(tempTile);
+            else
+               System.out.println("You cannot place this piece");
          }
          else if(mCultureName.equals("Greek")){
-         if(nTile.equals("Desert")&&checkCount(nTile,tArray) < 1 || 
+            if(nTile.equals("Desert")&&checkCount(nTile,tArray) < 1 || 
              nTile.equals("Fertile")&&checkCount(nTile,tArray) < 3 || 
              nTile.equals("Forest")&&checkCount(nTile,tArray) < 2 ||
              nTile.equals("Hills")&&checkCount(nTile,tArray) < 8 ||
              nTile.equals("Mountains")&&checkCount(nTile,tArray) < 1 ||
              nTile.equals("Swamp")&&checkCount(nTile,tArray) < 1)
-            tArray.add(tempTile);
+               tArray.add(tempTile);
+            else
+               System.out.println("You cannot place this piece");
          }
          else if(mCultureName.equals("Norse")){
-         if(nTile.equals("Desert")&&checkCount(nTile,tArray) < 1 || 
+            if(nTile.equals("Desert")&&checkCount(nTile,tArray) < 1 || 
              nTile.equals("Fertile")&&checkCount(nTile,tArray) < 3 || 
              nTile.equals("Forest")&&checkCount(nTile,tArray) < 4 ||
              nTile.equals("Hills")&&checkCount(nTile,tArray) < 3 ||
              nTile.equals("Mountains")&&checkCount(nTile,tArray) < 4 ||
              nTile.equals("Swamp")&&checkCount(nTile,tArray) < 1)
-            tArray.add(tempTile);
+               tArray.add(tempTile);
+            else
+               System.out.println("You cannot place this piece");
          }
       }
       else{
-         System.out.println("You cannot build this");
+         System.out.println("You cannot place anymore this");
       }
       return null;
    }
