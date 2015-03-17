@@ -2,16 +2,18 @@
 import java.util.ArrayList;
 
 public class Player {
-   String race;
-   String age;
-   ArrayList<Card> cards;
-   ArrayList<Resource> resources;
-   ArrayList<BuildingTiles> buildingT;
-   ArrayList<ProductionTiles> productionT;
-   Integer victoryPoints;
+   private String mName;
+   private String mRace;
+   private String age;
+   private ArrayList<Card> cards;
+   private ArrayList<Resource> resources;
+   private ArrayList<BuildingTiles> buildingT;
+   private ArrayList<ProductionTiles> productionT;
+   private Integer victoryPoints;
    boolean turn;
-   public Player(){
-      race = "";
+   public Player(String name, String race){
+      mName = name;
+      mRace = race;
       age = "Archaic";
       cards = new ArrayList();
       resources = new ArrayList();
@@ -21,10 +23,10 @@ public class Player {
       turn = false;
    }
    public String getRace(){
-      return race;
+      return mRace;
    }
    public void chooseRace(String newRace){
-      race = newRace;
+      mRace = newRace;
    }
    public String getAge(){
       return age;
@@ -48,8 +50,9 @@ public class Player {
    public Integer cardQuantity(){
       return cards.size();
    }
-   public void addCard(Card newCard){
-      cards.add(newCard);
+   public void addCard(String newCard){
+      Card tempCard = new Card(newCard);
+      cards.add(tempCard);
    }
    public Integer resourceQuantity(String resourceType){
       int quantity = 0;

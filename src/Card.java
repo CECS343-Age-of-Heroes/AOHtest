@@ -1,7 +1,12 @@
 
 public class Card {
    String type;
-   public Card(){
+   String mName;
+   public Card(String name){
+       mName = name;
+   }
+   public String getCardName(){
+       return mName;
    }
    @Override
    public String toString(){
