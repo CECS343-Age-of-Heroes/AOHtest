@@ -3,18 +3,18 @@ import java.util.ArrayList;
 
 public class Player {
    private String mName;
-   private String mRace;
-   private String age;
+   private Culture mCulture;
+   private Age age;
    private ArrayList<Card> cards;
    private ArrayList<Resource> resources;
    private ArrayList<BuildingTiles> buildingT;
    private ArrayList<ProductionTiles> productionT;
    private Integer victoryPoints;
    boolean turn;
-   public Player(String name, String race){
+   public Player(String name, String culture){
       mName = name;
-      mRace = race;
-      age = "Archaic";
+      mCulture = new Culture(culture);
+      age = new Age();
       cards = new ArrayList();
       resources = new ArrayList();
       buildingT = new ArrayList();
@@ -22,27 +22,17 @@ public class Player {
       victoryPoints = 0;
       turn = false;
    }
-   public String getRace(){
-      return mRace;
+   public String getCulture(){
+      return mCulture.showCulture();
    }
-   public void chooseRace(String newRace){
-      mRace = newRace;
+   public String currentAge(){
+      return age.getAge();
    }
-   public String getAge(){
-      return age;
-   }
-   public void newAge(){
-      if(age.equals("Archaic"))
-         age = "Classical";
-      else if(age.equals("Classical"))
-         age = "Heroic";
-      else if(age.equals("Heroic"))
-         age = "Mythic";
-      else
-         System.out.println("You cannot progress any further.");
+   public void changeAge(){
+      age.newAge();
    }
    public Card getCards(){
-      for(int i = 0;i<cards.size();i++){
+      for(int i = 0;i < cards.size();i++){
       
       }
       return null;
@@ -58,7 +48,7 @@ public class Player {
       int quantity = 0;
       for(int i = 0;i < resources.size();i++){
          if(resources.get(i).resourceType().equals(resourceType))
-            quantity = quantity + resources.get(i).value;
+            quantity = quantity + resources.get(i).getValue();
       }
       return quantity;
    }
@@ -73,11 +63,11 @@ public class Player {
          if(buildingT.get(i).buildType().equals(newBuilding))
             quantity++;
       }
-      if(quantity == 1 && newBuilding != "House"){
+      if(quantity == 1 && !newBuilding.equals("House")){
          BuildingTiles tempBuild = new BuildingTiles(newBuilding);
          buildingT.add(tempBuild);
       }
-      else if(newBuilding == "House" && quantity <= 10){
+      else if(newBuilding.equals("House") && quantity <= 10){
          BuildingTiles tempBuild = new BuildingTiles(newBuilding);
          buildingT.add(tempBuild);
       }
@@ -86,13 +76,10 @@ public class Player {
       }
    }
    public void placeProduction(String newProduction){
-      int quantity = 0;
-      // need to worry about how many you can place down only a total of 16
-      for(int i = 0;i < productionT.size();i++){
-         if(productionT.get(i).productionType().equals(newProduction))
-            quantity++;
-      //check with race to find out how much of each tile the player can have
-      }
+      mCulture.drawProdT(newProduction, productionT);
+   }
+   public Integer productionSize(){
+      return productionT.size();
    }
    public Integer victoryPtsQuantity(){
       return victoryPoints;

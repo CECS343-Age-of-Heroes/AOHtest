@@ -1,7 +1,7 @@
 
 public class ProductionTiles {
-   String mProductionName;
-   Integer productionValue;
+   private String mProductionName;
+   private Integer productionValue;
    public ProductionTiles(String productionName){
       mProductionName = productionName;
       productionValue = 1;

@@ -1,12 +1,12 @@
 
 public class Card {
-   String type;
-   String mName;
+   private String type;
+   private String mName;
    public Card(String name){
-       mName = name;
+      mName = name;
    }
    public String getCardName(){
-       return mName;
+      return mName;
    }
    @Override
    public String toString(){
