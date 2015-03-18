@@ -6,7 +6,8 @@ public class ProductionTiles {
       mProductionName = productionName;
       productionValue = 1;
    }
-   public String productionType(){
+   @Override
+   public String toString(){
       return mProductionName;
    }
 }

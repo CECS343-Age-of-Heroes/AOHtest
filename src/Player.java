@@ -10,7 +10,7 @@ public class Player {
    private ArrayList<BuildingTiles> buildingT;
    private ArrayList<ProductionTiles> productionT;
    private Integer victoryPoints;
-   private Action myMove;
+   private Action myMove = new Action();
    boolean turn;
    public Player(String name, String culture){
       mName = name;
@@ -62,26 +62,10 @@ public class Player {
       resources.add(tempRes);
    }
    public void buildBuilding(String newBuilding){
-      int quantity = 0;
-      // need to worry about how many you can place down only a total of 16
-      for(int i = 0;i < buildingT.size();i++){
-         if(buildingT.get(i).buildType().equals(newBuilding))
-            quantity++;
-      }
-      if(quantity == 1 && !newBuilding.equals("House")){
-         BuildingTiles tempBuild = new BuildingTiles(newBuilding);
-         buildingT.add(tempBuild);
-      }
-      else if(newBuilding.equals("House") && quantity <= 10){
-         BuildingTiles tempBuild = new BuildingTiles(newBuilding);
-         buildingT.add(tempBuild);
-      }
-      else{
-         System.out.println("You have have hit the building limit");
-      }
+      myMove.buildBuildT(newBuilding, buildingT);
    }
    public void placeProduction(String newProduction){
-      myMove.drawProdT(newProduction, mCulture.showCulture(),productionT);
+      myMove.drawProdT(newProduction, mCulture.showCulture(), productionT);
    }
    public Integer productionSize(){
       return productionT.size();

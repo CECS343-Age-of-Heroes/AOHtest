@@ -6,7 +6,8 @@ public class BuildingTiles {
       mBuildName = buildName;
       buildValue = null;
    }
-   public String buildType(){
+   @Override
+   public String toString(){
       return mBuildName;
    }
 }
