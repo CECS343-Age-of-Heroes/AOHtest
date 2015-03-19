@@ -23,7 +23,6 @@ public class Player {
       victoryPoints = 0;
       turn = false;
    }
-   
    public String getName(){
        return mName;
    }
@@ -38,7 +37,6 @@ public class Player {
    }
    public Card getCards(){
       for(int i = 0;i < cards.size();i++){
-      
       }
       return null;
    }
@@ -69,6 +67,9 @@ public class Player {
    }
    public Integer productionSize(){
       return productionT.size();
+   }
+   public Integer buildingSize(){
+      return buildingT.size();
    }
    public Integer victoryPtsQuantity(){
       return victoryPoints;

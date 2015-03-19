@@ -1,10 +1,9 @@
 
 public class BuildingTiles {
    private String mBuildName;
-   private Integer buildValue;
+   private Value buildValue;
    public BuildingTiles(String buildName){
       mBuildName = buildName;
-      buildValue = null;
    }
    @Override
    public String toString(){
