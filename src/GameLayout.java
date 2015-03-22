@@ -14,6 +14,7 @@ public class GameLayout {
       player1.buildBuilding("Wall");
       player1.buildBuilding("Quarry");
       System.out.println(player1.buildingSize());
+      player1.buildBuilding("Wall");
    }
     
 
