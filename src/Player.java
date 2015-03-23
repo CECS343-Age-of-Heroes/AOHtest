@@ -2,81 +2,78 @@
 import java.util.ArrayList;
 
 public class Player {
-   private String mName;
-   private Culture mCulture;
-   private Age age;
-   private ArrayList<Card> cards;
-   private ArrayList<Resource> resources;
-   private ArrayList<BuildingTiles> buildingT;
-   private ArrayList<ProductionTiles> productionT;
+   private final String NAME;
+   private final Culture CULTURE;
+   private final Age AGE;
+   private final ArrayList<Card> CARDS;
+   private final ArrayList<Resource> RESOURCES;
+   private final ArrayList<BuildingTiles> BUILDINGT;
+   private final ArrayList<ProductionTiles> PRODUCTIONT;
    private Integer victoryPoints;
-   private Action myMove = new Action();
-   private Deck myDeck;
+   private final Action MOVE;
+   private final Deck DECK;
    boolean turn;
    public Player(String name, String culture){
-      mName = name;
-      mCulture = new Culture(culture);
-      age = new Age();
-      cards = new ArrayList();
-      resources = new ArrayList();
-      buildingT = new ArrayList();
-      productionT = new ArrayList();
+      NAME = name;
+      CULTURE = new Culture(culture);
+      AGE = new Age();
+      CARDS = new ArrayList();
+      RESOURCES = new ArrayList();
+      BUILDINGT = new ArrayList();
+      PRODUCTIONT = new ArrayList();
       victoryPoints = 0;
-      myDeck = new Deck(culture);
+      MOVE = new Action();
+      DECK = new Deck(culture);
       turn = false;
    }
    public String getName(){
-       return mName;
+       return NAME;
    }
    public String getCulture(){
-      return mCulture.showCulture();
+      return CULTURE.showCulture();
    }
    public String currentAge(){
-      return age.getAge();
+      return AGE.getAge();
    }
    public void changeAge(){
-      age.newAge();
-   }
-   public Card getCards(){
-      for(int i = 0;i < cards.size();i++){
-      }
-      return null;
+      AGE.newAge();
    }
    public Integer cardQuantity(){
-      return cards.size();
+      return CARDS.size();
    }
    public void drawCard(){
-      myMove.drawCard(myDeck, age, cards);
+      MOVE.drawCard(DECK, AGE, CARDS);
    }
    public void showHand(){
-      for(int i = 0;i < cards.size();i++){
-         System.out.println(cards.get(i).getCardName());
+      for (Card card : CARDS) {
+         System.out.println(card.getCardName());
       }
-      System.out.println(myDeck.getSizeDeck());
+      System.out.println(DECK.getSizeDeck());
    }
    public Integer resourceQuantity(String resourceType){
       int quantity = 0;
-      for(int i = 0;i < resources.size();i++){
-         if(resources.get(i).resourceType().equals(resourceType))
-            quantity = quantity + resources.get(i).getValue();
+      for (Resource resource : RESOURCES) {
+         if (resource.resourceType().equals(resourceType)) {
+            quantity = quantity + resource.getValue();
+         }
       }
       return quantity;
    }
    public void addResource(String newResource){
       Resource tempRes = new Resource(newResource);
-      resources.add(tempRes);
+      RESOURCES.add(tempRes);
    }
    public void buildBuilding(String newBuilding){
-      myMove.buildBuildT(newBuilding, buildingT);
+      MOVE.buildBuildT(newBuilding, BUILDINGT);
    }
    public void placeProduction(String newProduction){
-      myMove.drawProdT(newProduction, mCulture.showCulture(), productionT);
+      MOVE.drawProdT(newProduction, CULTURE.showCulture(), PRODUCTIONT);
    }
    public Integer productionSize(){
-      return productionT.size();
+      return PRODUCTIONT.size();
    }
    public Integer buildingSize(){
-      return buildingT.size();
+      return BUILDINGT.size();
    }
    public Integer victoryPtsQuantity(){
       return victoryPoints;

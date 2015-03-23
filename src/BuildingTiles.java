@@ -1,12 +1,12 @@
 
 public class BuildingTiles {
-   private String mBuildName;
+   private final String BUILDNAME;
    private Value buildValue;
    public BuildingTiles(String buildName){
-      mBuildName = buildName;
+      BUILDNAME = buildName;
    }
    @Override
    public String toString(){
-      return mBuildName;
+      return BUILDNAME;
    }
 }

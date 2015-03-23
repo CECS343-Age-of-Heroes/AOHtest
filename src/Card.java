@@ -1,15 +1,11 @@
 
-import java.util.ArrayList;
-
-
 public class Card {
-   private String type;
-   private String mName;
+   private final String NAME;
    public Card(String name){
-      mName = name;
+      NAME = name;
    }
    public String getCardName(){
-      return mName;
+      return NAME;
    }
    @Override
    public String toString(){

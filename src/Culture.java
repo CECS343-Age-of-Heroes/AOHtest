@@ -1,13 +1,10 @@
 
-import java.util.ArrayList;
-
-
 public class Culture {
-   private String mCultureName;
+   private final String CULTURENAME;
    public Culture(String cultureName){
-      mCultureName = cultureName;
+      CULTURENAME = cultureName;
    }
    public String showCulture(){
-      return mCultureName;
+      return CULTURENAME;
    }
 }
