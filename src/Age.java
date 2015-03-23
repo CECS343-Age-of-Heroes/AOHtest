@@ -9,6 +9,9 @@ public class Age {
    public String getAge(){
       return timePeriod;
    }
+   public int drawNumber(){
+      return cardDraw;
+   }
    public void newAge(){
       if(timePeriod.equals("Archaic")){
          timePeriod = "Classical";

@@ -11,6 +11,7 @@ public class Player {
    private ArrayList<ProductionTiles> productionT;
    private Integer victoryPoints;
    private Action myMove = new Action();
+   private Deck myDeck;
    boolean turn;
    public Player(String name, String culture){
       mName = name;
@@ -21,6 +22,7 @@ public class Player {
       buildingT = new ArrayList();
       productionT = new ArrayList();
       victoryPoints = 0;
+      myDeck = new Deck(culture);
       turn = false;
    }
    public String getName(){
@@ -43,9 +45,14 @@ public class Player {
    public Integer cardQuantity(){
       return cards.size();
    }
-   public void addCard(String newCard){
-      Card tempCard = new Card(newCard);
-      cards.add(tempCard);
+   public void drawCard(){
+      myMove.drawCard(myDeck, age, cards);
+   }
+   public void showHand(){
+      for(int i = 0;i < cards.size();i++){
+         System.out.println(cards.get(i).getCardName());
+      }
+      System.out.println(myDeck.getSizeDeck());
    }
    public Integer resourceQuantity(String resourceType){
       int quantity = 0;

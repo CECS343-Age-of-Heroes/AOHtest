@@ -54,4 +54,12 @@ public class Action extends Counter{
          System.out.println("You cannot build this");
       return null;
    }
+   public void drawCard(Deck drawHere, Age currentAge, ArrayList<Card> hand){
+      if(hand.size()<currentAge.drawNumber()){
+         hand.add(drawHere.drawCard());
+      }
+      else{
+         System.out.println("Cannot draw more");
+      }
+   }
 }

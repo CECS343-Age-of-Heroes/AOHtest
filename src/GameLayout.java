@@ -15,6 +15,16 @@ public class GameLayout {
       player1.buildBuilding("Quarry");
       System.out.println(player1.buildingSize());
       player1.buildBuilding("Wall");
+      player1.drawCard();
+      player1.drawCard();
+      player1.drawCard();
+      player1.drawCard();
+      player1.drawCard();
+      player1.drawCard();
+      player1.showHand();
+      player1.changeAge();
+      player1.drawCard();
+      player1.showHand();
    }
     
 

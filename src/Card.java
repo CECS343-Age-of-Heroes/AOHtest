@@ -8,9 +8,6 @@ public class Card {
    public Card(String name){
       mName = name;
    }
-   public Card drawCard(Age currentAge,ArrayList<Card> hand){
-      return null; 
-   }
    public String getCardName(){
       return mName;
    }
