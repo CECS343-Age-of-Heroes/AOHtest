@@ -1,9 +1,9 @@
 
 public class Value {
-   private final String TYPE;
-   private final int VALUE;
+   private String mType;
+   private int mValue;
    public Value(String type, int value){
-      TYPE = type;
-      VALUE = value;
+      mType = type;
+      mValue = value;
    }
 }

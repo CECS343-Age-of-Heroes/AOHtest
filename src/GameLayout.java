@@ -17,6 +17,15 @@ public class GameLayout {
          culture = input.next();
          player1 = new Player(name,culture);
          System.out.println("Name: "+player1.getName()+" Culture: "+player1.getCulture());
+         player1.drawCard();
+         player1.drawCard();
+         player1.drawCard();
+         player1.drawCard();
+         player1.drawCard();
+         player1.showHand();
+         
+         
+         cont = "EXIT";
          
       }
    }

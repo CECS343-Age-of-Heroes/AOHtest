@@ -4,9 +4,10 @@ import java.util.ArrayList;
 public abstract class Counter<T> {
    public Integer checkCount(String newTile, ArrayList<T> array){
       int quantity = 0;
-      for(int i = 0;i < array.size();i++){
-         if(array.get(i).toString().equals(newTile))
+      for (T array1 : array) {
+         if (array1.toString().equals(newTile)) {
             quantity++;
+         }
       }
       return quantity;
    }

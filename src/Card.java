@@ -1,11 +1,11 @@
 
 public class Card {
-   private final String NAME;
+   private String mName;
    public Card(String name){
-      NAME = name;
+      mName = name;
    }
    public String getCardName(){
-      return NAME;
+      return mName;
    }
    @Override
    public String toString(){

@@ -1,10 +1,10 @@
 
 public class Culture {
-   private final String CULTURENAME;
+   private String mCultureName;
    public Culture(String cultureName){
-      CULTURENAME = cultureName;
+      mCultureName = cultureName;
    }
    public String showCulture(){
-      return CULTURENAME;
+      return mCultureName;
    }
 }

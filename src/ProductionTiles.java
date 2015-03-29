@@ -1,13 +1,13 @@
 
 public class ProductionTiles {
-   private final String PRODNAME;
-   private final Integer PRODVALUE;
+   private String mProdName;
+   private Integer mProdValue;
    public ProductionTiles(String productionName){
-      PRODNAME = productionName;
-      PRODVALUE = 1;
+      mProdName = productionName;
+      mProdValue = 1;
    }
    @Override
    public String toString(){
-      return PRODNAME;
+      return mProdName;
    }
 }

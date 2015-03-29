@@ -1,15 +1,15 @@
 
 public class Resource {
-   private final String TYPE;
-   private final int VALUE;
+   private String mType;
+   private int mValue;
    public Resource(String type){
-      TYPE = type;
-      VALUE = 1;
+      mType = type;
+      mValue = 1;
    }
    public Integer getValue(){
-      return VALUE;
+      return mValue;
    }
    public String resourceType(){
-      return TYPE;
+      return mType;
    }
 }
