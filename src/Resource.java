@@ -2,9 +2,9 @@
 public class Resource {
    private String mType;
    private int mValue;
-   public Resource(String type){
+   public Resource(String type,int value){
       mType = type;
-      mValue = 1;
+      mValue = value;
    }
    public Integer getValue(){
       return mValue;

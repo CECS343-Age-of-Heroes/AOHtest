@@ -1,9 +1,16 @@
 
+import java.util.ArrayList;
+
+
 public class BuildingTiles {
    private String mBuildName;
-   private Value buildValue;
-   public BuildingTiles(String buildName){
+   private ArrayList<Value> mBuildValue;
+   public BuildingTiles(String buildName,ArrayList<Value> buildValue){
       mBuildName = buildName;
+      mBuildValue = buildValue;
+   }
+   public ArrayList<Value> getValue(){
+      return mBuildValue;
    }
    @Override
    public String toString(){
